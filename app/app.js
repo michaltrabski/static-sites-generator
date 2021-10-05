@@ -1,12 +1,18 @@
-const { myReadFileSync, myWriteFileSync } = require("./utils");
+const {
+  myReadFileSync,
+  myWriteFileSync,
+  myCreatePageSync,
+} = require("./utils");
 
 const app = (config) => {
-  const header = myReadFileSync("templates", "header.html");
-  const footer = myReadFileSync("templates", "footer.html");
-  const page = myReadFileSync("templates", "page.html");
+  const data = myReadFileSync("data", "data.json", {});
+  const pages = data.pages;
 
-  const data = header + page + footer;
-  myWriteFileSync("build", "index.html", data);
+  // myCreatePageSync({ title: "strona główna", slug: "index" });
+
+  pages.forEach((page, i) => {
+    myCreatePageSync(page);
+  });
 };
 
 module.exports = {
