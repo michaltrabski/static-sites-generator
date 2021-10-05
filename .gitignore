@@ -1,3 +1,5 @@
+cache/
+app/build/
 
 
 
@@ -122,9 +124,3 @@ dist
 
 
 
-cache/
-
-
-mp3/
-content/
-normalizedContent/
